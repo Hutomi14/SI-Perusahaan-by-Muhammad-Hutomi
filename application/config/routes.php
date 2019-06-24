@@ -50,8 +50,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 // $route['default_controller'] = 'welcome';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['default_controller'] = 'pages/view';
-$route['(:any)'] = 'pages/view/$1';
+// $route['default_controller'] = 'pages/view';
+// $route['(:any)'] = 'pages/view/$1';	
+
+
+$route['default_controller'] = 'user/login';
+$route['login'] = 'user/login';
+$route['login/proses'] = 'user/prosesLogin';
+$route['register'] = 'user/register';
+$route['register/proses'] = 'user/prosesRegister';
+$route['logout'] = 'user/logout';
+
+//setelah login
+	//karyawan
+	$route['dashboard/karyawan'] = 'karyawan/index';
+	$route['dashboard/karyawan/edit/(:any)'] = 'karyawan/edit/$1';
+	$route['dashboard/karyawan/update/(:any)'] = 'karyawan/update/$1';
+
+	//posisi
+	$route['dashboard/posisi'] = 'posisi/index';
+	$route['dashboard/posisi/add'] = 'posisi/add';
+	$route['dashboard/posisi/create'] = 'posisi/create';
+	$route['dashboard/posisi/edit/(:any)'] = 'posisi/edit/$1';
+	$route['dashboard/posisi/update/(:any)'] = 'posisi/update/$1';
+
+	//departemen
+	$route['dashboard/departemen'] = 'departemen/index';
+	$route['dashboard/departemen/add'] = 'departemen/add';
+	$route['dashboard/departemen/create'] = 'departemen/create';
+	$route['dashboard/departemen/edit/(:any)'] = 'departemen/edit/$1';
+	$route['dashboard/departemen/update/(:any)'] = 'departemen/update/$1';

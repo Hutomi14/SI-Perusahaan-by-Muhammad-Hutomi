@@ -1,0 +1,11 @@
+@import '../js/datepicker/css/datepicker.css';
+
+@import 'komponen/main.css';
+@import 'komponen/header.css';
+@import 'komponen/footer.css';
+@import 'komponen/form.css';
+@import 'komponen/sidebar.css';
+
+/* CSS untuk halaman */
+@import 'halaman/akses.css';
+@import 'halaman/dashboard.css';

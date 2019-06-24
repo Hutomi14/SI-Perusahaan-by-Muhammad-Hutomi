@@ -1,3 +1,3 @@
-          <em>&copy; 2019</em>
-    </body>
-</html>
+	<footer class="navbar bg-dark navbar-dark footer-weecom">
+		<span class="ml-auto">@Weecom</span class="ml-auto">
+	</footer> 

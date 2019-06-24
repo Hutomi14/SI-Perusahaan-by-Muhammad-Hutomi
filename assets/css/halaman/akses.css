@@ -1,0 +1,18 @@
+h2.title-register{
+	color: #343a40;
+	font-weight: bold;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+h3.title-register{
+	font-size: 20px;
+	color: #6d6a6a;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.akses-button{
+	margin-top: 15px;
+	margin-bottom: 25px;
+}
