@@ -1,4 +1,4 @@
-<div class="container-fluid p-weecom">
+<div class="container p-weecom">
 
 	<div class="row h-75 align-items-center">
 		
