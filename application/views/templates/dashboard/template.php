@@ -3,10 +3,6 @@
 	<div class="dashboard">	
 
 		<nav id="sidebar" class="bg-dark">
-            <div id="sidebar-header">
-                <h3>WEECOM</h3>
-            </div>
-
             <ul class="menu list-tanpa-style">
                 <li class="<?php echo menuAktif('dashboard') ?>"> <?php echo anchor('dashboard', 'Dashboard'); ?> </li>
                 <li class="<?php echo menuAktif('karyawan') ?>"> <?php echo anchor('dashboard/karyawan', 'Karyawan'); ?> </li>
@@ -33,11 +29,14 @@
 	    </nav>
 
 		<div id="content">
-			<div class="container-fluid">
-				<button type="button" id="sidebarCollapse" class="btn btn-outline-dark">
+            <nav class="navbar navbar-expand bg-light">
+                <button type="button" id="sidebarCollapse" class="btn btn-outline-dark">
                     <i class="fa fa-align-justify"></i>
                 </button>
+                <a class="navbar-brand logo-dashboard" href="#">WEECOM</a>
+            </nav>
 
+            <div class="container-fluid">
 				<?php
 				    if($this->session->flashdata('pesan')){
 				        $alert = $this->session->flashdata('alert');

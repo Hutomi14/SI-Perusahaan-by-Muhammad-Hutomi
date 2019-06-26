@@ -8,7 +8,7 @@
     background: #fff;
     border: none;
     border-radius: 0;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -44,15 +44,6 @@
 #sidebar #sidebar-header {
     padding: 20px;
     background: #24303a;
-}
-
-#sidebar #sidebar-header h3{
-    font-weight: bold;
-    margin-bottom: 0px;
-}
-
-#sidebar ul.menu {
-    padding: 10px 0px;
 }
 
 #sidebar ul.menu li a {
@@ -99,12 +90,17 @@ ul ul a {
 #content {
     width: calc(100% - 250px);
     min-height: 100vh;
-    transition: all 0.5s;
+    transition: all 0.3s;
     position: absolute;
     top: 0;
     right: 0;
-    padding-top: 10px;
 }
+
+.logo-dashboard{
+    margin-left: 10px;
+    font-size: 13px;
+}
+
 #content.layarpenuh {
     width: 100%;
 }

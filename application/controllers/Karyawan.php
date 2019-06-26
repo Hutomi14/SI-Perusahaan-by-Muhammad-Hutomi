@@ -2,7 +2,7 @@
 
 	class Karyawan extends CI_Controller {
 
-		private $template = 'templates/dashboard/main';
+		private $template = 'templates/dashboard/template.php';
 
 		public function __construct(){
 			parent::__construct();
