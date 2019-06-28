@@ -22,7 +22,7 @@
 			$this->load->view($this->template, $data);        
         }
 
-        public function edit($id = 0, $page = 'pages/karyawan/formEdit'){
+        public function edit($id = 0, $page = 'pages/karyawan/form'){
 			$data['title'] = 'Module Karyawan | Edit';
 			$data['titleDashboard'] = 'Karyawan';
 			$data['kontenDinamis'] = $page;
@@ -95,7 +95,7 @@
 		public function unique_email($input, $id){
 			$row = $this->Karyawan_model->melaluiEmail($input)
 										->row();
-										
+
 			if($row){			
 				if($row->id != $id){
 					$this->form_validation->set_message('unique_email', 'Sudah ada yang daftar dengan email '.$input);

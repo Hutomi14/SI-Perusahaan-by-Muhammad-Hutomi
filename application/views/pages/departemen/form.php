@@ -2,7 +2,7 @@
 	<div class="card-body">
     	<?php 
 			$atribut = array('class' => 'form-weecom');
-			echo form_open(base_url('departemen/create'), $atribut); 
+			echo form_open($action, $atribut); 
 		?>
 	    <div class="form-group row">
 	        <label for="nama_departemen" class="col-3 control-label">Nama Departemen</label>
@@ -13,8 +13,8 @@
 					        'name'  => 'nama_departemen',
 					        'id'    => 'nama_departemen',
 					        'class' => 'form-control',
-					        'value' => set_value('nama_departemen'),
-					        'placeholder' => 'Nama Departemen'
+					        'value' => set_value('nama_departemen', $row->nama_departemen ?? ''),
+					        'placeholder' => 'Nama Posisi'
 					);
 					echo form_input($data);
 					echo form_error('nama_departemen');
@@ -26,7 +26,7 @@
 	        <div class="col-9">
 	        	<?php 
 					$atribut = array('class' => 'form-control');
-					echo form_dropdown('status', $status, '', $atribut);
+					echo form_dropdown('status', $status, $row->status ?? '', $atribut);
 					echo form_error('status');
 				?>
 	        </div>
@@ -38,7 +38,7 @@
 					        'name'  => 'submit',
 					        'class' => 'btn btn-dark btn-block'
 					);
-					echo form_submit($atribut, 'Create');
+					echo form_submit($atribut, 'Update');
 				?>
 	        </div>
 	    </div>

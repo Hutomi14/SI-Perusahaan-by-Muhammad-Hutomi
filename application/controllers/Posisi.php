@@ -22,10 +22,11 @@
 			$this->load->view($this->template, $data);        
         }
 
-        public function add($page = 'pages/posisi/formAdd'){
+        public function add($page = 'pages/posisi/form'){
 			$data['title'] = 'Module Posisi | Tambah';
 			$data['titleDashboard'] = 'Posisi';
 			$data['kontenDinamis'] = $page;
+			$data['action'] = base_url('posisi/create');
 
 			$data['status'] = array_combine($this->config->item('status'),
 											$this->config->item('status'));
@@ -62,11 +63,12 @@
 	        }   
         }
 
-        public function edit($id = 0, $page = 'pages/posisi/formEdit'){
+        public function edit($id = 0, $page = 'pages/posisi/form'){
 			$data['title'] = 'Module Posisi | Edit';
 			$data['titleDashboard'] = 'Posisi';
 			$data['kontenDinamis'] = $page;
 			$data['row'] = $this->Posisi_model->melaluiId($id)->row();
+			$data['action'] = base_url('posisi/update/'.$id);
 
 			$data['status'] = array_combine($this->config->item('status'),
 											$this->config->item('status'));

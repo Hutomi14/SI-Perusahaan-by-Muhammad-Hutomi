@@ -20,15 +20,16 @@
 			$this->load->view($this->template, $data);        
         }
 
-        public function add($page = 'pages/departemen/formAdd'){
+        public function add($page = 'pages/departemen/form'){
 			$data['title'] = 'Module Deparetemen | Tambah';
 			$data['titleDashboard'] = 'Deparetemen';
 			$data['kontenDinamis'] = $page;
+			$data['action'] = base_url('departemen/create');
 
 			$data['status'] = array_combine($this->config->item('status'),
 											$this->config->item('status'));
 
-			$this->load->view($this->template, $data);    
+			$this->load->view($this->template, $data);
         }
 
         public function create(){
@@ -60,11 +61,12 @@
 	        }   
         }
 
-        public function edit($id = 0, $page = 'pages/departemen/formEdit'){
+        public function edit($id = 0, $page = 'pages/departemen/form'){
 			$data['title'] = 'Module Posisi | Edit';
 			$data['titleDashboard'] = 'Posisi';
 			$data['kontenDinamis'] = $page;
 			$data['row'] = $this->Departemen_model->melaluiId($id)->row();
+			$data['action'] = base_url('departemen/update/'.$id);
 
 			$data['status'] = array_combine($this->config->item('status'),
 											$this->config->item('status'));

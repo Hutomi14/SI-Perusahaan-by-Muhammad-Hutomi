@@ -44,7 +44,7 @@
             ]
         });
 
-        let tombolTambah = '<a class="btn btn-success btn-sm" href="<?php echo base_url('dashboard/posisi/add/'); ?>">+ Departemen</a>';
+        let tombolTambah = '<a class="btn btn-success btn-sm" href="<?php echo base_url('dashboard/departemen/add/'); ?>">+ Departemen</a>';
         $("div.toolbar").html(tombolTambah);
     });
 </script>

@@ -31,7 +31,7 @@
                 {
                 	//bikin tombol
                     'render': function (data, type, row ) {
-                    	let btnEdit = '<a class="btn btn-info btn-sm" href="<?php echo base_url('dashboard/posisi/edit/'); ?>'+row.id+'">EDIT</a>';
+                    	let btnEdit = '<a class="btn btn-dark btn-sm" href="<?php echo base_url('dashboard/posisi/edit/'); ?>'+row.id+'">EDIT</a>';
 
                         return btnEdit;
                     },
