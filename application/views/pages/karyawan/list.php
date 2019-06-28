@@ -1,21 +1,27 @@
-<table id="table" class="table table-striped table-hover">
-	<thead>
-	    <tr>
-	        <th>Nama Lengkap</th>
-	        <th>Jenis Kelamin</th>
-	        <th>Email</th>
-	        <th>Handphone</th>
-	        <th>&nbsp;</th>
-	    </tr>
-	</thead>
-	<tbody></tbody>
-</table>
+<div class="row">
+    <div class="col-12">
+        <div class="table-responsive">
+            <table id="table" class="table table-striped table-hover" style="width:100%">
+            	<thead>
+            	    <tr>
+            	        <th>Nama Lengkap</th>
+            	        <th>Jenis Kelamin</th>
+            	        <th>Email</th>
+            	        <th>Handphone</th>
+            	        <th>&nbsp;</th>
+            	    </tr>
+            	</thead>
+            	<tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
  <script type="text/javascript">
 
     $(document).ready(function() {
         //datatables
-        $('#table').DataTable({
+        let table = $('#table').DataTable({
         	//ambil data pakai ajax
             'ajax': {
                 'url': '<?php echo base_url('karyawan/data'); ?>',
@@ -39,7 +45,7 @@
                 {
                 	//bikin tombol
                     'render': function (data, type, row ) {
-                    	let btnEdit = '<a class="btn btn-info btn-sm" href="<?php echo base_url('dashboard/karyawan/edit/'); ?>'+row.id+'">EDIT</a>';
+                    	let btnEdit = '<a class="btn btn-dark btn-sm" href="<?php echo base_url('dashboard/karyawan/edit/'); ?>'+row.id+'">EDIT</a>';
 
                         return btnEdit;
                     },
@@ -50,6 +56,9 @@
 					'targets'  : '_all' 
 				}
             ]
+        });
+
+        $('#sidebarCollapse').on('click', function () {
         });
     });
 </script>
