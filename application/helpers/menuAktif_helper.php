@@ -5,7 +5,7 @@
 		function menuAktif($url = ""){
 			$ci =& get_instance();
 
-			if($ci->uri->uri_string() == $url){
+			if($ci->uri->segment(2) == $url){
 				return 'active';
 			}
 	    }   

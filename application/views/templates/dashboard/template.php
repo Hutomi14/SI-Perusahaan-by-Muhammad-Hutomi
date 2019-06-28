@@ -1,15 +1,14 @@
 <?php $this->load->view('templates/open'); ?>
-
 	<div class="dashboard">	
 
 		<nav id="sidebar" class="bg-dark">
             <ul class="menu list-tanpa-style">
-                <li class="<?php echo menuAktif('dashboard') ?>"> <?php echo anchor('dashboard', 'Dashboard'); ?> </li>
+                <li class="<?php echo menuAktif('') ?>"> <?php echo anchor('dashboard', 'Dashboard'); ?> </li>
                 <li class="<?php echo menuAktif('karyawan') ?>"> <?php echo anchor('dashboard/karyawan', 'Karyawan'); ?> </li>
-                <li class="<?php echo menuAktif('tunjangan') ?>"> <?php echo anchor('dashboard/tunjangan', 'Tunjangan', ['class' => menuAktif('dashboard/tunjangan')]); ?> </li>
-                <li class="<?php echo menuAktif('absensi') ?>"> <?php echo anchor('dashboard/absensi', 'Absensi', ['class' => menuAktif('dashboard/absensi')]); ?> </li>
-                <li class="<?php echo menuAktif('posisi') ?>"> <?php echo anchor('dashboard/posisi', 'Posisi', ['class' => menuAktif('dashboard/posisi')]); ?> </li>
-                <li class="<?php echo menuAktif('departemen') ?>"> <?php echo anchor('dashboard/departemen', 'Departemen', ['class' => menuAktif('dashboard/departemen')]); ?> </li>
+                <li class="<?php echo menuAktif('tunjangan') ?>"> <?php echo anchor('dashboard/tunjangan', 'Tunjangan'); ?> </li>
+                <li class="<?php echo menuAktif('absensi') ?>"> <?php echo anchor('dashboard/absensi', 'Absensi'); ?></li>
+                <li class="<?php echo menuAktif('posisi') ?>"> <?php echo anchor('dashboard/posisi', 'Posisi'); ?> </li>
+                <li class="<?php echo menuAktif('departemen') ?>"> <?php echo anchor('dashboard/departemen', 'Departemen'); ?> </li>
                 <li>
                     <a href="#homeSubmenu" class="dropdown-toggle" data-toggle="collapse" aria-expanded="false">Administrasi</a>
                     <ul class="list-tanpa-style collapse" id="homeSubmenu">
@@ -43,7 +42,7 @@
 				        echo '<div class="alert ' . $alert . '">' . $this->session->flashdata('pesan') . '</div>';
 				    }
 				?>
-				
+
 				<h3 class="dashboard"><?php echo $titleDashboard; ?></h3>
 				<?php
 					//ini yang akan membuat konten di dalam dashboard berubah-ubah
