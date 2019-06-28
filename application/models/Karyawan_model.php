@@ -20,6 +20,13 @@
             return $query;
         }
 
+        public function melaluiEmail($email){
+            $query = $this->db->select('*')
+                              ->where('email', $email)
+                              ->get('karyawan');
+            return $query;
+        }
+
         public function update($id, $data){
             $query = $this->db->where('id', $id);
             $query = $this->db->update('karyawan', $data);

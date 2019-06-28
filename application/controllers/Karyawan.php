@@ -38,12 +38,13 @@
         public function update($id){
 	    	$this->form_validation->set_rules('nama_depan', 'Nama Depan', 'required');
 	    	$this->form_validation->set_rules('nama_belakang', 'Nama Belakang', 'required');
-	    	$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[karyawan.email]');
+	    	$this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback_unique_email['.$id.']');
 	    	$this->form_validation->set_rules('dob', 'Tanggal Lahir', 'required');
 	    	$this->form_validation->set_rules('alamat', 'alamat', 'required');
 	    	$this->form_validation->set_rules('nomor_telepon', 'nomor_telepon', 'numeric');
 	    	$this->form_validation->set_rules('nomor_hp', 'nomor_hp', 'required|numeric');
 	    	$this->form_validation->set_rules('jenis_kelamin', 'jenis_kelamin', 'required');
+
 
 	    	if ($this->form_validation->run() == FALSE)
 	        {  	
@@ -63,9 +64,9 @@
 				                 'nomor_hp'    		=> $this->input->post('nomor_hp'),
 				                 'jenis_kelamin'    => $this->input->post('jenis_kelamin'),
 				                 'alamat'   		=> $this->input->post('alamat'),
-				                 'id_departemen'    => $this->input->post('id_departemen'),
-				                 'id_posisi'    	=> $this->input->post('id_departemen'),
-				                 'status'    	=> $this->input->post('status'),
+				                 'id_departemen'    => $this->input->post('departemen'),
+				                 'id_posisi'    	=> $this->input->post('posisi'),
+				                 'status'    		=> $this->input->post('status'),
 				                 'diganti'    		=> saatIni()
 				             	];
 
@@ -91,9 +92,26 @@
 			echo json_encode($dataTable);
 		}
 
+		public function unique_email($input, $id){
+			$row = $this->Karyawan_model->melaluiEmail($input)
+										->row();
+										
+			if($row){			
+				if($row->id != $id){
+					$this->form_validation->set_message('unique_email', 'Sudah ada yang daftar dengan email '.$input);
+					return FALSE;
+				}
+				else{
+					return TRUE;
+				}
+			}
+
+			return TRUE;
+		}
+
         //CUMA UNTUK ISI DATA
-  //       public function faker(){
-  //       	$masalahWindows = str_replace("\\", "/", APPPATH);
+	    //public function faker(){
+	    //$masalahWindows = str_replace("\\", "/", APPPATH);
 
 		// 	include $masalahWindows."third_party/Faker-master/faker/autoload.php";
 			
