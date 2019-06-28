@@ -22,7 +22,10 @@
     $(document).ready(function() {
         //datatables
         let table = $('#table').DataTable({
-        	//ambil data pakai ajax
+            //ATUR POSISI TOMBOL & INFORMASI TABLE (PENJELASAN DI AKHIR2 VIDEO)
+            'dom': '<"row dataTables_weecom"<"col-12 col-lg-4"f><"col-12 col-lg-3"l><"col-12 col-lg-5 toolbar text-right">><t><"row"<"col-6"i><"col-6"p>>',
+
+        	//ambil data pakai ajax<lf<t>ip>
             'ajax': {
                 'url': '<?php echo base_url('karyawan/data'); ?>',
                 'type': 'POST'
@@ -58,7 +61,5 @@
             ]
         });
 
-        $('#sidebarCollapse').on('click', function () {
-        });
     });
 </script>

@@ -15,7 +15,9 @@
 	    
 	    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/malihu-scrollbar-plugin-master/jquery.mCustomScrollbar.min.css'); ?>" />
 	    
-	    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css?'); ?>" />
+	    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/komponen/dataTables.css'); ?>" />
+
+	    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css'); ?>" />
 
 	    <!-- JQUERY AJA DI HEADER -->
         <script type="text/javascript" src="<?php echo base_url('assets/js/jquery-3.4.1.min.js'); ?>"></script>

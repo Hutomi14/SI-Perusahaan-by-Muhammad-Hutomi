@@ -1,12 +1,3 @@
-<div class="row">
-    <div class="col-12 text-right">
-        <?php 
-            $atribut = ['class' => 'btn btn-primary btn-sm btn-tambah'];
-            echo anchor('dashboard/posisi/add', '+ Tambah Posisi', $atribut);
-        ?>
-    </div>    
-</div>
-
 <table id="table" class="table table-striped table-hover">
 	<thead>
 	    <tr>
@@ -23,6 +14,8 @@
     $(document).ready(function() {
         //datatables
         $('#table').DataTable({
+            //ATUR POSISI TOMBOL & INFORMASI TABLE (PENJELASAN DI AKHIR2 VIDEO)
+            'dom': '<"row dataTables_weecom"<"col-12 col-lg-4"f><"col-12 col-lg-3"l><"col-12 col-lg-5 toolbar text-right">><t><"row"<"col-6"i><"col-6"p>>',
 
         	//ambil data pakai ajax
             'ajax': {
@@ -50,5 +43,8 @@
 				}
             ]
         });
+
+        let tombolTambah = '<a class="btn btn-success btn-sm" href="<?php echo base_url('dashboard/posisi/add/'); ?>">+ Posisi</a>';
+        $("div.toolbar").html(tombolTambah);
     });
 </script>

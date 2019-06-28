@@ -2,7 +2,7 @@
 
 	class Posisi extends CI_Controller {
 
-		private $template = 'templates/dashboard';
+		private $template = 'templates/dashboard/template';
 
 		public function __construct(){
 			parent::__construct();
