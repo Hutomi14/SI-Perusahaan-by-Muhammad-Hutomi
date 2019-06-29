@@ -21,9 +21,10 @@
         }
 
         public function add($page = 'pages/departemen/form'){
-			$data['title'] = 'Module Deparetemen | Tambah';
+			$data['title'] = 'Deparetemen | Tambah';
 			$data['titleDashboard'] = 'Deparetemen';
 			$data['kontenDinamis'] = $page;
+			$data['tombol'] = 'Create';
 			$data['action'] = base_url('departemen/create');
 
 			$data['status'] = array_combine($this->config->item('status'),
@@ -41,14 +42,14 @@
 	        	$this->add();
 	        }
 	        else{
-	        	$dataPosisi = ['nama_departemen'=> $this->input->post('nama_departemen'),
-	        				   'status'		=> $this->input->post('status'),
-				               'dibuat'    => saatIni(),
-				               'diganti'    => saatIni()
-				              ];
+	        	$dataDepartemen = ['nama_departemen'=> $this->input->post('nama_departemen'),
+		        				   'status'		=> $this->input->post('status'),
+					               'dibuat'    => saatIni(),
+					               'diganti'    => saatIni()
+					              ];
 
 	        	//kalau form diisi dengan benar maka simpan data ke table user
-				$this->Departemen_model->create($dataPosisi);
+				$this->Departemen_model->create($dataDepartemen);
 
 				// //untuk notifikasi
 				$dataPesan = ['alert' => 'alert-success',
@@ -62,10 +63,11 @@
         }
 
         public function edit($id = 0, $page = 'pages/departemen/form'){
-			$data['title'] = 'Module Posisi | Edit';
-			$data['titleDashboard'] = 'Posisi';
+			$data['title'] = 'Deparetemen | Edit';
+			$data['titleDashboard'] = 'Deparetemen';
 			$data['kontenDinamis'] = $page;
 			$data['row'] = $this->Departemen_model->melaluiId($id)->row();
+			$data['tombol'] = 'Update';
 			$data['action'] = base_url('departemen/update/'.$id);
 
 			$data['status'] = array_combine($this->config->item('status'),
@@ -75,7 +77,7 @@
         }
 
         public function update($id){
-	    	$this->form_validation->set_rules('nama_departemen', 'Posisi', 'required');
+	    	$this->form_validation->set_rules('nama_departemen', 'Deparetemen', 'required');
 
 	    	if ($this->form_validation->run() == FALSE)
 	        {  	
@@ -87,7 +89,7 @@
 	        	$this->edit($id);
 	        }
 	        else{
-	        	$dataPosisi = ['nama_departemen'		=> $this->input->post('nama_departemen'),
+	        	$dataPosisi = ['nama_departemen' => $this->input->post('nama_departemen'),
 	        				   'status'		=> $this->input->post('status'),
 				               'diganti'    		=> saatIni()
 				              ];

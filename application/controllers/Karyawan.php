@@ -23,7 +23,7 @@
         }
 
         public function edit($id = 0, $page = 'pages/karyawan/form'){
-			$data['title'] = 'Module Karyawan | Edit';
+			$data['title'] = 'Karyawan | Edit';
 			$data['titleDashboard'] = 'Karyawan';
 			$data['kontenDinamis'] = $page;
 			$data['row'] = $this->Karyawan_model->melaluiId($id)->row();
