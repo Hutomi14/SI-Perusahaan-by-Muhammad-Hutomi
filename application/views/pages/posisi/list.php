@@ -1,13 +1,19 @@
-<table id="table" class="table table-striped table-hover">
-	<thead>
-	    <tr>
-	        <th>Posisi</th>
-	        <th>Status</th>
-	        <th>&nbsp;</th>
-	    </tr>
-	</thead>
-	<tbody></tbody>
-</table>
+<div class="row">
+    <div class="col-12">
+        <div class="table-responsive">
+            <table id="table" class="table table-striped table-hover" style="width:100%">
+            	<thead>
+            	    <tr>
+            	        <th>Posisi</th>
+            	        <th>Status</th>
+            	        <th>&nbsp;</th>
+            	    </tr>
+            	</thead>
+            	<tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
  <script type="text/javascript">
 

@@ -5,7 +5,7 @@
             <ul class="menu list-tanpa-style">
                 <li class="<?php echo menuAktif('') ?>"> <?php echo anchor('dashboard', 'Dashboard'); ?> </li>
                 <li class="<?php echo menuAktif('karyawan') ?>"> <?php echo anchor('dashboard/karyawan', 'Karyawan'); ?> </li>
-                <li class="<?php echo menuAktif('tunjangan') ?>"> <?php echo anchor('dashboard/tunjangan', 'Tunjangan'); ?> </li>
+                <li class="<?php echo menuAktif('tunjangan') ?>"> <?php echo anchor('dashboard/tunjangan', 'Gaji & Tunjangan'); ?> </li>
                 <li class="<?php echo menuAktif('absensi') ?>"> <?php echo anchor('dashboard/absensi', 'Absensi'); ?></li>
                 <li class="<?php echo menuAktif('posisi') ?>"> <?php echo anchor('dashboard/posisi', 'Posisi'); ?> </li>
                 <li class="<?php echo menuAktif('departemen') ?>"> <?php echo anchor('dashboard/departemen', 'Departemen'); ?> </li>
