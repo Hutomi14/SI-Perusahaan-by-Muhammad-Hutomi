@@ -38,7 +38,7 @@
 					        'name'  => 'submit',
 					        'class' => 'btn btn-dark btn-block'
 					);
-					echo form_submit($atribut, 'Update');
+					echo form_submit($atribut, $tombol);
 				?>
 	        </div>
 	    </div>
