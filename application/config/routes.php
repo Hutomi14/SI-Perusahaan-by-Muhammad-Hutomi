@@ -84,3 +84,25 @@ $route['logout'] = 'user/logout';
 	$route['dashboard/departemen/create'] = 'departemen/create';
 	$route['dashboard/departemen/edit/(:any)'] = 'departemen/edit/$1';
 	$route['dashboard/departemen/update/(:any)'] = 'departemen/update/$1';
+
+	//kategori
+	$route['dashboard/administrasi/kategori'] = 'kategori/index';
+	$route['dashboard/administrasi/kategori/add'] = 'kategori/add';
+	$route['dashboard/administrasi/kategori/create'] = 'kategori/create';
+	$route['dashboard/administrasi/kategori/edit/(:any)'] = 'kategori/edit/$1';
+	$route['dashboard/administrasi/kategori/update/(:any)'] = 'kategori/update/$1';
+
+	//tunjangan
+	$route['dashboard/gaji-dan-tunjangan'] = 'tunjangan/index';
+	$route['dashboard/gaji-dan-tunjangan/add'] = 'tunjangan/add';
+	$route['dashboard/gaji-dan-tunjangan/create'] = 'tunjangan/create';
+	$route['dashboard/gaji-dan-tunjangan/edit/(:any)'] = 'tunjangan/edit/$1';
+	$route['dashboard/gaji-dan-tunjangan/update/(:any)'] = 'tunjangan/update/$1';
+
+	//absensi
+	$route['dashboard/absensi'] = 'absensi/index';
+	$route['dashboard/absensi/detail/(:any)'] = 'absensi/detail/$1';
+	// $route['dashboard/absensi/add'] = 'absensi/add';
+	// $route['dashboard/absensi/create'] = 'absensi/create';
+	// $route['dashboard/absensi/edit/(:any)'] = 'absensi/edit/$1';
+	// $route['dashboard/absensi/update/(:any)'] = 'absensi/update/$1';

@@ -3,23 +3,16 @@
 
 		<nav id="sidebar" class="bg-dark">
             <ul class="menu list-tanpa-style">
-                <li class="<?php echo menuAktif('') ?>"> <?php echo anchor('dashboard', 'Dashboard'); ?> </li>
+                <li class="<?php echo menuAktif('dashboard') ?>"> <?php echo anchor('dashboard', 'Dashboard'); ?> </li>
                 <li class="<?php echo menuAktif('karyawan') ?>"> <?php echo anchor('dashboard/karyawan', 'Karyawan'); ?> </li>
-                <li class="<?php echo menuAktif('tunjangan') ?>"> <?php echo anchor('dashboard/tunjangan', 'Gaji & Tunjangan'); ?> </li>
+                <li class="<?php echo menuAktif('tunjangan') ?>"> <?php echo anchor('dashboard/gaji-dan-tunjangan', 'Gaji & Tunjangan'); ?> </li>
                 <li class="<?php echo menuAktif('absensi') ?>"> <?php echo anchor('dashboard/absensi', 'Absensi'); ?></li>
                 <li class="<?php echo menuAktif('posisi') ?>"> <?php echo anchor('dashboard/posisi', 'Posisi'); ?> </li>
                 <li class="<?php echo menuAktif('departemen') ?>"> <?php echo anchor('dashboard/departemen', 'Departemen'); ?> </li>
                 <li>
                     <a href="#homeSubmenu" class="dropdown-toggle" data-toggle="collapse" aria-expanded="false">Administrasi</a>
                     <ul class="list-tanpa-style collapse" id="homeSubmenu">
-                        <li>
-                            <a href="#">Pengelola System</a>
-                        </li>
-                        <li>
-                            <a href="#">Manajemen Modul</a>
-                        </li>
-                        <li>
-                            <a href="#">Log Aktifitas</a>
+                        <li class="<?php echo menuAktif('kategori') ?>"> <?php echo anchor('dashboard/administrasi/kategori', 'Kategori'); ?>
                         </li>
                     </ul>
                 </li>

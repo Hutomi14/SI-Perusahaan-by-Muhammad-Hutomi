@@ -1,6 +1,6 @@
 <?php
 
-	class Posisi extends CI_Controller {
+	class Kategori extends CI_Controller {
 
 		private $template = 'templates/dashboard/template';
 
@@ -9,25 +9,24 @@
 			apakahLoginRedirect();
 
 			$this->load->model('Karyawan_model');
-			$this->load->model('Departemen_model');
-			$this->load->model('Posisi_model');
+			$this->load->model('Kategori_model');
 		}
 
-        public function index($page = 'pages/posisi/list')
+        public function index($page = 'pages/kategori/list')
         {
-			$data['title'] = 'Posisi';
-			$data['titleDashboard'] = 'Posisi';
+			$data['title'] = 'Kategori';
+			$data['titleDashboard'] = 'Kategori';
 			$data['kontenDinamis'] = $page;
 			
 			$this->load->view($this->template, $data);        
         }
 
-        public function add($page = 'pages/posisi/form'){
-			$data['title'] = 'Posisi | Tambah';
-			$data['titleDashboard'] = 'Posisi';
+        public function add($page = 'pages/kategori/form'){
+			$data['title'] = 'Kategori | Tambah';
+			$data['titleDashboard'] = 'Kategori';
 			$data['kontenDinamis'] = $page;
 			$data['tombol'] = 'Create';
-			$data['action'] = base_url('posisi/create');
+			$data['action'] = base_url('dashboard/administrasi/kategori/create');
 
 			$data['status'] = array_combine($this->config->item('status'),
 											$this->config->item('status'));
@@ -36,7 +35,7 @@
         }
 
         public function create(){
-	    	$this->form_validation->set_rules('nama_posisi', 'Posisi', 'required');
+	    	$this->form_validation->set_rules('nama_kategori', 'Nama Kategori', 'required');
 
 	    	if ($this->form_validation->run() == FALSE)
 	        {  	
@@ -44,33 +43,35 @@
 	        	$this->add();
 	        }
 	        else{
-	        	$dataPosisi = ['nama_posisi'=> $this->input->post('nama_posisi'),
+	        	$data = ['tipe'=> $this->input->post('tipe'),
+	        				   'nama_kategori'=> $this->input->post('nama_kategori'),
+	        				   'keterangan'=> $this->input->post('keterangan'),
 	        				   'status'		=> $this->input->post('status'),
 				               'dibuat'    => saatIni(),
 				               'diganti'    => saatIni()
 				              ];
 
 	        	//kalau form diisi dengan benar maka simpan data ke table user
-				$this->Posisi_model->create($dataPosisi);
+				$this->Kategori_model->create($data);
 
 				// //untuk notifikasi
 				$dataPesan = ['alert' => 'alert-success',
-	        				  'pesan' => 'Data posisi berhasil di tambahkan'];
+	        				  'pesan' => 'Data kategori berhasil di tambahkan'];
 
 	    		$this->session->set_flashdata($dataPesan);
 
 				// //pindahkan ke halaman login
-				redirect('dashboard/posisi');
+				redirect('dashboard/administrasi/kategori');
 	        }   
         }
 
-        public function edit($id = 0, $page = 'pages/posisi/form'){
-			$data['title'] = 'Posisi | Edit';
-			$data['titleDashboard'] = 'Posisi';
+        public function edit($id = 0, $page = 'pages/kategori/form'){
+			$data['title'] = 'Kategori | Edit';
+			$data['titleDashboard'] = 'Kategori';
 			$data['kontenDinamis'] = $page;
-			$data['row'] = $this->Posisi_model->berdasarkanId($id)->row();
+			$data['row'] = $this->Kategori_model->berdasarkanId($id)->row();
 			$data['tombol'] = 'Update';
-			$data['action'] = base_url('posisi/update/'.$id);
+			$data['action'] = base_url('dashboard/administrasi/kategori/update/'.$id);
 
 			$data['status'] = array_combine($this->config->item('status'),
 											$this->config->item('status'));
@@ -79,25 +80,27 @@
         }
 
         public function update($id){
-	    	$this->form_validation->set_rules('nama_posisi', 'Posisi', 'required');
+	    	$this->form_validation->set_rules('nama_kategori', 'Nama Kategori', 'required');
 
 	    	if ($this->form_validation->run() == FALSE)
 	        {  	
 	        	if(!$id){
-		        	redirect('dashboard/posisi');
+		        	redirect('dashboard/administrasi/kategori');
 	        	}
 	        
 	        	//panggil form edit
 	        	$this->edit($id);
 	        }
 	        else{
-	        	$dataPosisi = ['nama_posisi'		=> $this->input->post('nama_posisi'),
-	        				   'status'		=> $this->input->post('status'),
-				               'diganti'    		=> saatIni()
+	        	$data = ['nama_kategori'	=> $this->input->post('nama_kategori'),
+	        				   'tipe'			=> $this->input->post('tipe'),
+	        				   'keterangan'		=> $this->input->post('keterangan'),
+	        				   'status'			=> $this->input->post('status'),
+				               'diganti'    	=> saatIni()
 				              ];
 
 	        	//kalau form diisi dengan benar maka simpan data ke table user
-				$this->Posisi_model->update($id, $dataPosisi);
+				$this->Kategori_model->update($id, $data);
 
 				// //untuk notifikasi
 				$dataPesan = ['alert' => 'alert-success',
@@ -106,13 +109,13 @@
 	    		$this->session->set_flashdata($dataPesan);
 
 				// //pindahkan ke halaman login
-				redirect('dashboard/posisi');
+				redirect('dashboard/administrasi/kategori');
 	        }   
         }
 
 		//data json untuk datatables
 		public function data(){
-			$rows = $this->Posisi_model->semua()->result();
+			$rows = $this->Kategori_model->semua()->result();
 
 			$dataTable['data'] = $rows;
 			echo json_encode($dataTable);

@@ -8,7 +8,7 @@
             return $query;
         }
 
-        public function melaluiId($id){
+        public function berdasarkanId($id){
             $query = $this->db->select('*')
                               ->where('id', $id)
                               ->get('departemen');

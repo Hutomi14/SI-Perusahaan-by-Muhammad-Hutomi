@@ -9,6 +9,8 @@
 
 	    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/fontawesome-free-5.9.0-web/css/all.min.css'); ?>" />
 	    
+	    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/jquery-ui-1.12.1.custom/jquery-ui.min.css'); ?>" />
+
 	    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/bootstrap-4.3.1/css/bootstrap.min.css'); ?>" />
 	    
 	    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/DataTables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css'); ?>" />
@@ -21,5 +23,7 @@
 
 	    <!-- JQUERY AJA DI HEADER -->
         <script type="text/javascript" src="<?php echo base_url('assets/js/jquery-3.4.1.min.js'); ?>"></script>
+
+        <script type="text/javascript" src="<?php echo base_url('assets/jquery-ui-1.12.1.custom/jquery-ui.min.js'); ?>"></script>
     </head>
     <body>

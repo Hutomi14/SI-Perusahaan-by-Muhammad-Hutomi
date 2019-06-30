@@ -66,7 +66,7 @@
 			$data['title'] = 'Deparetemen | Edit';
 			$data['titleDashboard'] = 'Deparetemen';
 			$data['kontenDinamis'] = $page;
-			$data['row'] = $this->Departemen_model->melaluiId($id)->row();
+			$data['row'] = $this->Departemen_model->berdasarkanId($id)->row();
 			$data['tombol'] = 'Update';
 			$data['action'] = base_url('departemen/update/'.$id);
 

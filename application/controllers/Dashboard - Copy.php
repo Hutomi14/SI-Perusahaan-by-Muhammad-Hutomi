@@ -1,6 +1,6 @@
 <?php
 
-	class Karyawan extends CI_Controller {
+	class Absensi extends CI_Controller {
 
 		private $template = 'templates/dashboard/template.php';
 
@@ -8,21 +8,29 @@
 			parent::__construct();
 			apakahLoginRedirect();
 
-			$this->load->model('Karyawan_model');
-			$this->load->model('Departemen_model');
-			$this->load->model('Posisi_model');
+			$this->load->model(['Karyawan_model','Absensi_model']);
 		}
 
-        public function index($page = 'pages/karyawan/list')
+        public function index($page = 'pages/absensi/list')
         {
-			$data['title'] = 'Karyawan';
-			$data['titleDashboard'] = 'Karyawan';
+			$data['title'] = 'Absensi';
+			$data['titleDashboard'] = 'Absensi';
 			$data['kontenDinamis'] = $page;
 			
 			$this->load->view($this->template, $data);        
         }
 
-        public function edit($id = 0, $page = 'pages/karyawan/form'){
+        public function detail($id, $page = 'pages/absensi/listDetail')
+        {
+			$data['title'] = 'Absensi';
+			$data['titleDashboard'] = 'Absensi';
+			$data['kontenDinamis'] = $page;
+			$data['id'] = $id;
+
+			$this->load->view($this->template, $data);        
+        }
+
+        public function edit($id = 0, $page = 'pages/absensi/form'){
 			$data['title'] = 'Karyawan | Edit';
 			$data['titleDashboard'] = 'Karyawan';
 			$data['kontenDinamis'] = $page;
@@ -84,25 +92,10 @@
 	        }   
         }
 
-        //Autocomplete di form tunjangan
-        public function search()
-        {
-        	$nama = $this->input->get('term');
-        	$rows = $this->Karyawan_model
-        				->berdasarkanNama($nama)
-        				->result();	
-	
-			echo json_encode($rows);			    
-        }
-
 		//data json untuk datatables
-		public function data($tipe = 'semua'){
-
-			if($tipe == 'semua'){
-				$rows = $this->Karyawan_model->semua()->result();
-			}else if($tipe == 'karyawan-aktif'){
-				$rows = $this->Karyawan_model->semuaKaryawanAktif()->result();
-			}
+		public function data(){
+			$rows = $this->Absensi_model->semua()
+										 ->result();
 
 			$dataTable['data'] = $rows;
 			echo json_encode($dataTable);
@@ -125,36 +118,18 @@
 			return TRUE;
 		}
 
-        //CUMA UNTUK ISI DATA
-	    //public function faker(){
-	    //$masalahWindows = str_replace("\\", "/", APPPATH);
-
-		// 	include $masalahWindows."third_party/Faker-master/faker/autoload.php";
-			
-		// 	$batas = 200;
-
-		// 	$faker = Faker\Factory::create('en_HK');
-		// 	$faker->seed($batas);
-
-		// 	for ($i = 0; $i < $batas; $i++) {
-		// 		$dataRegister[] = ['nama_depan'		=> $faker->firstName,
-		// 		                 'nama_belakang'    => $faker->lastName,
-		// 		                 'email'            => $faker->email,
-		// 		                 'dob'            	=> $faker->dateTimeThisCentury->format('Y-m-d'),
-		// 		                 'nomor_telepon'    => $faker->phoneNumber,
-		// 		                 'nomor_hp'    		=> $faker->phoneNumber,
-		// 		                 'jenis_kelamin'    => $faker->randomElement(['Pria', 'Wanita']),
-		// 		                 'alamat'    		=> $faker->address,
-		// 		                 'password'    		=> $faker->password,
-		// 		                 'dibuat'    		=> saatIni(),
-		// 		                 'diganti'    		=> saatIni(),
-		// 		                 'id_departemen'    => 1,
-		// 		                 'id_posisi'    	=> 1 
-		// 		             	];
+        // CUMA UNTUK ISI DATA
+	 //    public function faker(){			
+		// 	$batas = 30;
+		// 	$dataRegister = array();
+		// 	for ($i = 1; $i < $batas; $i++) {
+		// 		$dataRegister[] = ['id_karyawan'	=> 203,
+		// 						   'apakah_hadir'	=> 1,
+		// 						   'waktu'			=> "2019-06-$i 06:35:10"];
 		// 	}
 
 		// 	//hanya faker, jadi langsung di kontroller
-		// 	$this->db->insert_batch('karyawan', $dataRegister);
+		// 	$this->db->insert_batch('absensi', $dataRegister);
 		// }
 
 	}
